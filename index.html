@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Fleet</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand"><h1>Fleet</h1><span class="brand-caption">Selected hosts · explicit connections</span></div>
+        <div class="actions">
+          <button type="button" id="new-host">Add host</button>
+          <button type="button" id="open-maintenance">Backup &amp; diagnostics</button>
+        </div>
+      </header>
+      <main class="app-main">
+        <aside class="sidebar" aria-label="Enrolled hosts, manual enrollment and discovery">
+          <p class="sidebar-caption mono" id="inventory-count">Loading enrolled metadata…</p>
+          <div id="host-editor"></div>
+          <div id="inventory"></div>
+        </aside>
+        <section id="terminals" class="terminals" aria-label="Remote terminals"></section>
+      </main>
+      <footer class="app-footer">
+        <p id="app-status" class="operation-status" role="status">Starting the native Fleet backend…</p>
+        <span id="app-version">Native desktop application</span>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

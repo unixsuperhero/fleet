@@ -1,0 +1,67 @@
+# VPS: mint/teal, two-line ASCII frame and symbols.
+add_newline = false
+palette = 'vps'
+format = '[| ](bold teal)[{VPS}](bold fg:ink bg:mint) $username$directory$git_branch$git_status$status$cmd_duration$line_break[+-- ](bold teal)$character'
+
+[palettes.vps]
+mint = '#6EE7B7'
+teal = '#2DD4BF'
+ice = '#CCFBF1'
+ink = '#042F2E'
+alert = '#F87171'
+
+[username]
+show_always = true
+format = '[$user]($style) '
+style_root = 'bold mint'
+style_user = 'bold mint'
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold ice'
+read_only = ' ro'
+read_only_style = 'bold alert'
+truncation_symbol = '.../'
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+symbol = 'git:'
+style = 'bold teal'
+truncation_symbol = '...'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = 'bold mint'
+conflicted = '=${count}'
+ahead = '>${count}'
+behind = '<${count}'
+diverged = '<>${ahead_count}/${behind_count}'
+up_to_date = ''
+untracked = '?${count}'
+stashed = 's${count}'
+modified = '!${count}'
+staged = '+${count}'
+renamed = 'r${count}'
+deleted = 'x${count}'
+typechanged = 't${count}'
+
+[status]
+disabled = false
+format = '[$symbol$status]($style) '
+symbol = 'exit:'
+map_symbol = false
+style = 'bold alert'
+
+[cmd_duration]
+min_time = 2000
+format = '[took $duration]($style) '
+style = 'bold teal'
+
+[character]
+format = '$symbol '
+success_symbol = '[##](bold mint)'
+error_symbol = '[!##](bold alert)'
+vimcmd_symbol = '[<<](bold teal)'
+vimcmd_replace_one_symbol = '[rr](bold teal)'
+vimcmd_replace_symbol = '[RR](bold teal)'
+vimcmd_visual_symbol = '[vv](bold teal)'

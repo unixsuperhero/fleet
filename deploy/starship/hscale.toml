@@ -1,0 +1,67 @@
+# HSCALE: amber/gold, single line, ASCII symbols.
+add_newline = false
+palette = 'hscale'
+format = '[<HSCALE>](bold fg:ink bg:gold) $username$directory$git_branch$git_status$status$cmd_duration$character'
+
+[palettes.hscale]
+gold = '#FBBF24'
+amber = '#D97706'
+sand = '#FDE68A'
+ink = '#1C1917'
+alert = '#FB7185'
+
+[username]
+show_always = true
+format = '[$user]($style) '
+style_root = 'bold gold'
+style_user = 'bold gold'
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold sand'
+read_only = ' ro'
+read_only_style = 'bold alert'
+truncation_symbol = '.../'
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+symbol = 'git:'
+style = 'bold amber'
+truncation_symbol = '...'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = 'bold gold'
+conflicted = '=${count}'
+ahead = '>${count}'
+behind = '<${count}'
+diverged = '<>${ahead_count}/${behind_count}'
+up_to_date = ''
+untracked = '?${count}'
+stashed = 's${count}'
+modified = '!${count}'
+staged = '+${count}'
+renamed = 'r${count}'
+deleted = 'x${count}'
+typechanged = 't${count}'
+
+[status]
+disabled = false
+format = '[$symbol$status]($style) '
+symbol = 'exit:'
+map_symbol = false
+style = 'bold alert'
+
+[cmd_duration]
+min_time = 2000
+format = '[took $duration]($style) '
+style = 'bold amber'
+
+[character]
+format = '$symbol '
+success_symbol = '[#](bold gold)'
+error_symbol = '[!#](bold alert)'
+vimcmd_symbol = '[<](bold amber)'
+vimcmd_replace_one_symbol = '[r](bold amber)'
+vimcmd_replace_symbol = '[R](bold amber)'
+vimcmd_visual_symbol = '[v](bold amber)'

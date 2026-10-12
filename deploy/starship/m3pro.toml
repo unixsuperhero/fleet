@@ -1,0 +1,66 @@
+add_newline = false
+format = '[\[](bold fg:#a78bfa)[M3PRO](bold fg:#f472b6)[\]](bold fg:#a78bfa) $time $git_commit$directory${custom.tmux}$git_branch$git_status$ruby$cmd_duration$line_break[+- ](bold fg:#a78bfa)$character'
+
+[character]
+success_symbol = '[>>](bold fg:#f472b6)'
+error_symbol = '[x>>](bold fg:#fb7185)'
+vimcmd_symbol = '[<<](bold fg:#f472b6)'
+vimcmd_replace_one_symbol = '[<<](bold fg:#fbbf24)'
+vimcmd_replace_symbol = '[<<](bold fg:#a78bfa)'
+vimcmd_visual_symbol = '[<<](bold fg:#e879f9)'
+
+[time]
+disabled = false
+time_format = '%Y%m%d %H%M%S'
+format = '[$time]($style)'
+style = 'fg:#c4b5fd'
+
+[git_commit]
+commit_hash_length = 8
+only_detached = false
+format = '[$hash$tag ]($style)'
+style = 'bold fg:#a78bfa'
+tag_symbol = ' tag:'
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false
+truncation_symbol = '.../'
+home_symbol = '~'
+read_only = ' RO'
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold fg:#f472b6'
+read_only_style = 'bold fg:#fb7185'
+
+[custom.tmux]
+description = 'Current tmux session name'
+command = "tmux display-message -p '#S'"
+when = '[ -n "$TMUX" ]'
+format = '[tmux:$output]($style) '
+style = 'bold fg:#e879f9'
+
+[git_branch]
+symbol = 'git:'
+truncation_symbol = '...'
+format = '[$symbol$branch(:$remote_branch)]($style) '
+style = 'bold fg:#a78bfa'
+
+[git_status]
+stashed = ''
+conflicted = '='
+deleted = 'x'
+renamed = 'r'
+modified = '!'
+untracked = '?'
+staged = '+'
+format = '([$staged](bold fg:#86efac)[$conflicted$stashed$deleted$renamed$modified$untracked](bold fg:#fb7185) )'
+
+[ruby]
+symbol = 'ruby '
+format = 'via [$symbol($version )]($style)'
+style = 'bold fg:#f9a8d4'
+
+[cmd_duration]
+min_time = 100_000
+format = 'took [$duration]($style) '
+style = 'fg:#d8b4fe'

@@ -1,0 +1,12 @@
+[Unit]
+Description=TUIOS daemon on hscale
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root
+ExecStart=/root/.local/bin/tuios daemon
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
